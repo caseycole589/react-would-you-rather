@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
 import { handleInitialData } from '../actions/shared';
 import Main from './Main';
+import NewQuestion from './NewQuestion';
+import Loggin from './Loggin';
 import '../App.css';
 
 class App extends Component {
@@ -16,7 +18,16 @@ class App extends Component {
         <Router>
           <Fragment>
             <LoadingBar />
-            <Main />
+            {this.props.loading === true ? (
+              <div>
+                <Loggin />
+              </div>
+            ) : (
+              <div>
+                <Route path="/" component={Main} />
+                <Route path="/questions/add" component={NewQuestion} />
+              </div>
+            )}
           </Fragment>
         </Router>
       </div>

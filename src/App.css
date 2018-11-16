@@ -30,3 +30,27 @@
     transform: rotate(360deg);
   }
 }
+
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.row {
+  flex-direction: row;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+.center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
