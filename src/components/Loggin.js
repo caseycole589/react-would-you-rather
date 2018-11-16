@@ -12,7 +12,10 @@ class Loggin extends Component {
 	};
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.dispatch(setAuthedUser(this.state.userId));
+		const userId = this.state.userId
+			? this.state.userId
+			: this.props.users[0].id;
+		this.props.dispatch(setAuthedUser(userId));
 	};
 	render() {
 		const { users } = this.props;

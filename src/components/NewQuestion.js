@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addQuestion } from '../actions/questions';
+import { handleAddQuestion } from '../actions/questions';
+import { Redirect } from 'react-router-dom';
+
 const paddingStyle = {
 	margin: '10px'
 };
@@ -10,15 +12,18 @@ class NewQuestion extends Component {
 		optionTwoText: '',
 		toHome: false
 	};
+	//TODO: put toHome in redux
 	handleSubmit = e => {
 		e.preventDefault();
-		const { dispatch } = this.props;
+		const { dispatch, author } = this.props;
 		const { optionOneText, optionTwoText } = this.state;
 		const question = {
 			optionOneText,
-			optionTwoText
+			optionTwoText,
+			author
 		};
-		dispatch(addQuestion(question));
+		dispatch(handleAddQuestion(question));
+		this.setState({ toHome: true });
 	};
 	handleChange = e => {
 		const { value, name } = e.target;
@@ -27,7 +32,10 @@ class NewQuestion extends Component {
 		});
 	};
 	render() {
-		const { optionOneText, optionTwoText } = this.state;
+		const { optionOneText, optionTwoText, toHome } = this.state;
+		if (toHome) {
+			return <Redirect to={'/'} />;
+		}
 		return (
 			<div>
 				<h2>Create New Question</h2>
@@ -60,5 +68,10 @@ class NewQuestion extends Component {
 		);
 	}
 }
+function mapStateToProps({ authUser }) {
+	return {
+		author: authUser
+	};
+}
 
-export default connect()(NewQuestion);
+export default connect(mapStateToProps)(NewQuestion);

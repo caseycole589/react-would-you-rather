@@ -6,7 +6,6 @@ export const handleInitialData = () => dispatch => {
 	dispatch(showLoading());
 	return Promise.all([_getUsers(), _getQuestions()]).then(
 		([users, questions]) => {
-			console.log(users, questions);
 			dispatch(recieveUsers(users));
 			dispatch(recieveQuestions(questions));
 			dispatch(hideLoading());
