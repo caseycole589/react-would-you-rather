@@ -1,13 +1,14 @@
 import { _getUsers, _getQuestions } from '../utils/_DATA';
 import { showLoading, hideLoading } from 'react-redux-loading';
 import { recieveUsers } from '../actions/users';
-
+import { recieveQuestions } from '../actions/questions';
 export const handleInitialData = () => dispatch => {
 	dispatch(showLoading());
 	return Promise.all([_getUsers(), _getQuestions()]).then(
 		([users, questions]) => {
 			console.log(users, questions);
 			dispatch(recieveUsers(users));
+			dispatch(recieveQuestions(questions));
 			dispatch(hideLoading());
 		}
 	);
