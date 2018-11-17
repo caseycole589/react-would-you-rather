@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-// const navBar = () => (
-// 	<div>
-// 		<div className="layout horizontal">
-// 			<div> Home</div>
-// 			<div> New Question</div>
-// 			<div> Leader Board</div>
-// 		</div>
-// 	</div>
-// );
+import { setAuthedUser } from '../actions/authUser';
+
 const usersAndQuestions = (users, questions) => (
 	<div className="flex row">
 		<div>
@@ -38,6 +31,10 @@ const usersAndQuestions = (users, questions) => (
 	</div>
 );
 class Main extends Component {
+	logOut = () => {
+		console.log('logging out');
+		this.props.dispatch(setAuthedUser(null));
+	};
 	render() {
 		const { users, questions } = this.props;
 		return (
@@ -50,14 +47,16 @@ class Main extends Component {
 				</NavLink>
 				<div> Leader Board</div>
 				{/*usersAndQuestions(users, questions)*/}
+				<button onClick={this.logOut}>Loggout</button>
 			</div>
 		);
 	}
 }
-function mapStateToProps({ users, questions }) {
+function mapStateToProps({ users, questions, authUser }) {
 	return {
 		questions: Object.keys(questions).map(key => questions[key]),
-		users: Object.keys(users).map(key => users[key])
+		users: Object.keys(users).map(key => users[key]),
+		authUser
 	};
 }
 
