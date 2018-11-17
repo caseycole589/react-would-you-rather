@@ -6,6 +6,7 @@ import { handleInitialData } from '../actions/shared';
 import Main from './Main';
 import NewQuestion from './NewQuestion';
 import Loggin from './Loggin';
+import Home from './Home';
 import '../App.css';
 
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
             ) : (
               <div>
                 <Switch>
-                  <Route exact path="/" />
+                  <Route exact path="/" component={Home} />
                   <Route path="/questions/add" component={NewQuestion} />
                   <Route component={Loggin} />
                 </Switch>
