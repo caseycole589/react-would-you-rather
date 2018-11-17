@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
 import { handleInitialData } from '../actions/shared';
 import Main from './Main';
@@ -18,14 +18,18 @@ class App extends Component {
         <Router>
           <Fragment>
             <LoadingBar />
+            <Main />
             {this.props.loading === true ? (
               <div>
                 <Loggin />
               </div>
             ) : (
               <div>
-                <Route path="/" component={Main} />
-                <Route path="/questions/add" component={NewQuestion} />
+                <Switch>
+                  <Route exact path="/" />
+                  <Route path="/questions/add" component={NewQuestion} />
+                  <Route component={Loggin} />
+                </Switch>
               </div>
             )}
           </Fragment>
