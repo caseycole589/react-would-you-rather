@@ -7,6 +7,8 @@ import Main from './Main';
 import NewQuestion from './NewQuestion';
 import Loggin from './Loggin';
 import Home from './Home';
+import AnsweredQuestion from './AnsweredQuestion';
+import UnAnsweredQuestion from './UnAnsweredQuestion';
 import '../App.css';
 
 class App extends Component {
@@ -29,6 +31,14 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/questions/add" component={NewQuestion} />
+                  <Route
+                    path="/questions/results/:id"
+                    component={AnsweredQuestion}
+                  />
+                  <Route
+                    path="/questions/ask/:id"
+                    component={UnAnsweredQuestion}
+                  />
                   <Route component={Loggin} />
                 </Switch>
               </div>
