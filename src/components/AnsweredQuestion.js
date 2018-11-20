@@ -1,10 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 class AnsweredQuestion extends Component {
+	state = {
+		answer: '',
+		toHome: false
+	};
+	handleChange = e => {
+		const { name, value } = e.target;
+		this.setState({
+			[name]: value
+		});
+	};
 	render() {
+		const { questions, authUser } = this.props;
+		const id = this.props.match.params.id;
+		const question = questions[id];
+		const answer = question.optionOne.votes.includes(authUser)
+			? 'optionOne'
+			: 'optionTwo';
 		return (
 			<div>
-				<h3>Some Asked</h3>
+				<h3>{question.author} Asked Would Your Rather...</h3>
+				<div className="flex column  center">
+					<div className="flex row">
+						<input
+							type="radio"
+							name="answer"
+							value="optionOne"
+							checked={answer === 'optionOne'}
+							onChange={this.handleChange}
+						/>
+						{question.optionOne.text}
+					</div>
+					<div className="flex row">
+						<input
+							type="radio"
+							name="answer"
+							value="optionTwo"
+							checked={answer === 'optionTwo'}
+							onChange={this.handleChange}
+						/>
+						{question.optionTwo.text}
+					</div>
+				</div>
 			</div>
 		);
 	}

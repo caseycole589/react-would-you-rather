@@ -19,7 +19,8 @@ class Main extends Component {
 				</NavLink>
 				<div> Leader Board</div>
 				{/*usersAndQuestions(users, questions)*/}
-				<button onClick={this.logOut}>Loggout</button>
+				<button onClick={this.logOut}>Log Out</button>
+				{this.props.authUser}
 			</div>
 		);
 	}
