@@ -18,9 +18,12 @@ class Main extends Component {
 					New Question
 				</NavLink>
 				<div> Leader Board</div>
-				{/*usersAndQuestions(users, questions)*/}
-				<button onClick={this.logOut}>Log Out</button>
-				{this.props.authUser}
+				<div>
+					<button onClick={this.logOut}>Log Out</button>
+					<span style={{ marginLeft: '20px' }}>
+						{this.props.authUser}
+					</span>
+				</div>
 			</div>
 		);
 	}
