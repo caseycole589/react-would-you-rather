@@ -1,8 +1,9 @@
 import { showLoading, hideLoading } from 'react-redux-loading';
-import { _saveQuestion } from '../utils/_DATA';
+import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA';
 
 export const RECIEVE_QUESTIONS = 'RECIEVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
+export const ANSWER_QUESTION = 'ANSWER_QUESTION';
 
 export const recieveQuestions = questions => {
 	return {
@@ -17,6 +18,24 @@ export const addQuestion = question => {
 		question
 	};
 };
+
+export const answerQuestion = question => {
+	return {
+		type: ANSWER_QUESTION,
+		question
+	};
+};
+
+export const handleAnswerQuestion = question => {
+	return dispatch => {
+		dispatch(showLoading());
+		return _saveQuestionAnswer(question).then(resp => {
+			dispatch(answerQuestion(question));
+			dispatch(hideLoading());
+		});
+	};
+};
+
 export const handleAddQuestion = question => {
 	return dispatch => {
 		dispatch(showLoading());

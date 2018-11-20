@@ -84,7 +84,6 @@ function mapStateToProps({ users, questions, authUser }) {
 			return authorVoted;
 		}),
 		unAnsweredQuestions: Object.values(questions).filter(question => {
-			console.log(question);
 			const authorVoted = !(
 				question.optionOne.votes.includes(authUser) ||
 				question.optionTwo.votes.includes(authUser)

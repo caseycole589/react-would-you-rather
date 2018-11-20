@@ -11,10 +11,4 @@ export const handleInitialData = () => dispatch => {
 			dispatch(hideLoading());
 		}
 	);
-	// return getInitialData().then(({ users, tweets }) => {
-	// 	dispatch(recieveUsers(users));
-	// 	dispatch(recieveTweets(tweets));
-	// 	dispatch(setAuthedUser(AUTHED_ID));
-	// 	dispatch(hideLoading());
-	// });
 };
