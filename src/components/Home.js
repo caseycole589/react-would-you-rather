@@ -31,9 +31,7 @@ class Home extends Component {
 											<li>{question.optionOne.text}</li>
 											<li>{question.optionTwo.text}</li>
 										</ol>
-										<Link
-											to={`/questions/ask/${question.id}`}
-										>
+										<Link to={`/questions/${question.id}`}>
 											<button>View Poll</button>
 										</Link>
 									</div>
@@ -56,11 +54,7 @@ class Home extends Component {
 											<li>{question.optionOne.text}</li>
 											<li>{question.optionTwo.text}</li>
 										</ol>
-										<Link
-											to={`/questions/results/${
-												question.id
-											}`}
-										>
+										<Link to={`/questions/${question.id}`}>
 											<button>View Poll</button>
 										</Link>
 									</div>

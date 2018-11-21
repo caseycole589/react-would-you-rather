@@ -31,14 +31,8 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/add" component={NewQuestion} />
-                  <Route
-                    path="/questions/results/:id"
-                    component={AnsweredQuestion}
-                  />
-                  <Route
-                    path="/questions/ask/:id"
-                    component={UnAnsweredQuestion}
-                  />
+                  <Route path="/questions/:id" component={AnsweredQuestion} />
+                  <Route path="/questions/:id" component={UnAnsweredQuestion} />
                   <Route component={Loggin} />
                 </Switch>
               </div>
