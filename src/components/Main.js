@@ -14,7 +14,7 @@ class Main extends Component {
 				<NavLink to="/" exact>
 					Home
 				</NavLink>
-				<NavLink to="/questions/add" exact>
+				<NavLink to="/add" exact>
 					New Question
 				</NavLink>
 				<div> Leader Board</div>
