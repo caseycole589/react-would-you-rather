@@ -12,9 +12,7 @@ class AnsweredQuestion extends Component {
 		});
 	};
 	render() {
-		const { questions, authUser } = this.props;
-		const id = this.props.match.params.id;
-		const question = questions[id];
+		const { question, authUser, id } = this.props;
 		const answer = question.optionOne.votes.includes(authUser)
 			? 'optionOne'
 			: 'optionTwo';

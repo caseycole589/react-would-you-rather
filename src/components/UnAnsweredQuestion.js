@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/questions';
+import { connect } from 'react-redux';
+
 import { Redirect } from 'react-router-dom';
 class UnAnsweredQuestion extends Component {
 	state = {
@@ -11,7 +12,7 @@ class UnAnsweredQuestion extends Component {
 		e.preventDefault();
 		const postData = {
 			authedUser: this.props.authUser,
-			qid: this.props.match.params.id,
+			qid: this.props.id,
 			answer: this.state.answer
 		};
 		this.props.dispatch(handleAnswerQuestion(postData));
@@ -24,9 +25,7 @@ class UnAnsweredQuestion extends Component {
 		});
 	};
 	render() {
-		const { questions } = this.props;
-		const id = this.props.match.params.id;
-		const question = questions[id];
+		const { question, id } = this.props;
 		const answer = this.state.answer;
 		const toHome = this.state.toHome;
 		if (toHome) {
@@ -64,11 +63,5 @@ class UnAnsweredQuestion extends Component {
 		);
 	}
 }
-function mapStateToProps({ questions, authUser }) {
-	return {
-		authUser,
-		questions
-	};
-}
 
-export default connect(mapStateToProps)(UnAnsweredQuestion);
+export default connect()(UnAnsweredQuestion);
