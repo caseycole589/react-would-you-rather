@@ -7,7 +7,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 
 const styles = {
 	root: {
@@ -29,30 +28,50 @@ class Main extends Component {
 			<div className={classes.root}>
 				<AppBar position="static">
 					<Toolbar>
-						<NavLink to="/" exact>
-							<Typography
-								variant="h6"
-								color="inherit"
-								className={classes.grow}
-							>
-								Home
-							</Typography>
-						</NavLink>
-						<NavLink to="/add" exact>
-							<Typography
-								variant="h6"
-								color="inherit"
-								className={classes.grow}
-							>
-								New Question
-							</Typography>
-						</NavLink>
-						<div> Leader Board</div>
-						<div>
-							<button onClick={this.logOut}>Log Out</button>
-							<span style={{ marginLeft: '20px' }}>
-								{this.props.authUser}
-							</span>
+						<div
+							className="flex row space-between"
+							style={{ width: '100%' }}
+						>
+							<div className="flex">
+								<NavLink to="/" exact>
+									<Typography
+										variant="h6"
+										color="inherit"
+										className={classes.grow}
+									>
+										Home
+									</Typography>
+								</NavLink>
+								<NavLink to="/add" exact>
+									<Typography
+										variant="h6"
+										color="inherit"
+										className={classes.grow}
+									>
+										New Question
+									</Typography>
+								</NavLink>
+								<NavLink to="/leaderboard" exact>
+									<Typography
+										variant="h6"
+										color="inherit"
+										className={classes.grow}
+									>
+										Leader Board
+									</Typography>
+								</NavLink>
+							</div>
+							<div>
+								<Button
+									variant="contained"
+									onClick={this.logOut}
+								>
+									Log Out
+								</Button>
+								<span style={{ marginLeft: '20px' }}>
+									{this.props.authUser}
+								</span>
+							</div>
 						</div>
 					</Toolbar>
 				</AppBar>

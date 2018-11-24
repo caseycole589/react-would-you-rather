@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 const paddingStyle = {
 	margin: '10px'
 };
+
 class NewQuestion extends Component {
 	state = {
 		optionOneText: '',
@@ -37,33 +38,35 @@ class NewQuestion extends Component {
 			return <Redirect to={'/'} />;
 		}
 		return (
-			<div>
-				<h2>Create New Question</h2>
-				<h4>Would You Rather...</h4>
-				<form onSubmit={this.handleSubmit}>
-					<div className="flex column space-around center">
-						<input
-							name="optionOneText"
-							style={paddingStyle}
-							type="text"
-							value={optionOneText}
-							onChange={this.handleChange}
-							placeholder="Enter First Option Here"
-						/>
-						<strong style={paddingStyle}>or</strong>
-						<input
-							name="optionTwoText"
-							style={paddingStyle}
-							type="text"
-							onChange={this.handleChange}
-							value={optionTwoText}
-							placeholder="Enter Second Option Here"
-						/>
-						<button style={paddingStyle} type="submit">
-							Submit
-						</button>
-					</div>
-				</form>
+			<div className="container">
+				<div className="shadow">
+					<h2>Create New Question</h2>
+					<h4>Would You Rather...</h4>
+					<form onSubmit={this.handleSubmit}>
+						<div className="flex column space-around center">
+							<input
+								name="optionOneText"
+								style={paddingStyle}
+								type="text"
+								value={optionOneText}
+								onChange={this.handleChange}
+								placeholder="Enter First Option Here"
+							/>
+							<strong style={paddingStyle}>or</strong>
+							<input
+								name="optionTwoText"
+								style={paddingStyle}
+								type="text"
+								onChange={this.handleChange}
+								value={optionTwoText}
+								placeholder="Enter Second Option Here"
+							/>
+							<button style={paddingStyle} type="submit">
+								Submit
+							</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		);
 	}

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authUser';
+
+const space = {
+	margin: '10px'
+};
 class Loggin extends Component {
 	state = {
 		userId: ''
@@ -20,10 +24,11 @@ class Loggin extends Component {
 	render() {
 		const { users } = this.props;
 		return (
-			<div>
+			<div className="loggin-form-center">
 				<form onSubmit={this.handleSubmit}>
-					<strong>Select User:</strong>
+					<strong style={space}>Select User:</strong>
 					<select
+						style={space}
 						value={this.state.userId}
 						onChange={this.handleChange}
 					>

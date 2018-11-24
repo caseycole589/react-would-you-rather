@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 class AnsweredQuestion extends Component {
 	state = {
 		answer: '',
@@ -12,7 +13,7 @@ class AnsweredQuestion extends Component {
 		});
 	};
 	render() {
-		const { question, authUser, id } = this.props;
+		const { question, authUser } = this.props;
 		const answer = question.optionOne.votes.includes(authUser)
 			? 'optionOne'
 			: 'optionTwo';
