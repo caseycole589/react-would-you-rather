@@ -24,22 +24,25 @@ class Loggin extends Component {
 	render() {
 		const { users } = this.props;
 		return (
-			<div className="loggin-form-center">
-				<form onSubmit={this.handleSubmit}>
-					<strong style={space}>Select User:</strong>
-					<select
-						style={space}
-						value={this.state.userId}
-						onChange={this.handleChange}
-					>
-						{users &&
-							users.map(user => (
-								<option key={user.id} value={user.id}>
-									{user.id}
-								</option>
-							))}
-					</select>
-					<button type="submit">Submit</button>
+			<div className="mui-container loggin-form-center">
+				<form className="mui-form" onSubmit={this.handleSubmit}>
+					<div className="mui-select">
+						<select
+							value={this.state.userId}
+							onChange={this.handleChange}
+						>
+							{users &&
+								users.map(user => (
+									<option key={user.id} value={user.id}>
+										{user.id}
+									</option>
+								))}
+						</select>
+						<label>Select User</label>
+					</div>
+					<button className="mui-btn mui-btn--raised" type="submit">
+						Submit
+					</button>
 				</form>
 			</div>
 		);

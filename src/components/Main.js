@@ -62,12 +62,12 @@ class Main extends Component {
 								</NavLink>
 							</div>
 							<div>
-								<Button
-									variant="contained"
+								<button
+									className="mui-btn mui-btn--raised"
 									onClick={this.logOut}
 								>
 									Log Out
-								</Button>
+								</button>
 								<span style={{ marginLeft: '20px' }}>
 									{this.props.authUser}
 								</span>
