@@ -20,8 +20,8 @@ class AnsweredQuestion extends Component {
 		return (
 			<div>
 				<h3>{question.author} Asked Would Your Rather...</h3>
-				<div className="flex column  center">
-					<div className="flex row">
+				<div className="flex column center ">
+					<div className="flex row mui-radio">
 						<input
 							type="radio"
 							name="answer"
@@ -31,7 +31,7 @@ class AnsweredQuestion extends Component {
 						/>
 						{question.optionOne.text}
 					</div>
-					<div className="flex row">
+					<div className="flex row mui-radio">
 						<input
 							type="radio"
 							name="answer"

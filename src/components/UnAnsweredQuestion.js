@@ -47,28 +47,37 @@ class UnAnsweredQuestion extends Component {
 					<h3>{question.author} Asked Would You Rather...</h3>
 					<form onSubmit={this.handleSubmit}>
 						<div className="flex column">
-							<div className="flex row">
-								<input
-									type="radio"
-									name="answer"
-									value="optionOne"
-									checked={answer === 'optionOne'}
-									onChange={this.handleChange}
-								/>
-								{question.optionOne.text}
+							<div className="flex row mui-radio">
+								<label>
+									<input
+										type="radio"
+										name="answer"
+										value="optionOne"
+										checked={answer === 'optionOne'}
+										onChange={this.handleChange}
+									/>
+									{question.optionOne.text}
+								</label>
 							</div>
-							<div className="flex row">
-								<input
-									type="radio"
-									name="answer"
-									value="optionTwo"
-									checked={answer === 'optionTwo'}
-									onChange={this.handleChange}
-								/>
-								{question.optionTwo.text}
+							<div className="flex row mui-radio">
+								<label>
+									<input
+										type="radio"
+										name="answer"
+										value="optionTwo"
+										checked={answer === 'optionTwo'}
+										onChange={this.handleChange}
+									/>
+									{question.optionTwo.text}
+								</label>
 							</div>
 						</div>
-						<button type="submit">Submit</button>
+						<button
+							type="submit"
+							className="mui-btn mui-btn--raised mui-btn--primary"
+						>
+							Submit
+						</button>
 					</form>
 				</Paper>
 			</div>

@@ -40,7 +40,10 @@ class Loggin extends Component {
 						</select>
 						<label>Select User</label>
 					</div>
-					<button className="mui-btn mui-btn--raised" type="submit">
+					<button
+						className="mui-btn mui-btn--raised mui-btn--primary"
+						type="submit"
+					>
 						Submit
 					</button>
 				</form>

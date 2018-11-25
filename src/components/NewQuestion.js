@@ -42,8 +42,8 @@ class NewQuestion extends Component {
 				<div className="shadow">
 					<h2>Create New Question</h2>
 					<h4>Would You Rather...</h4>
-					<form onSubmit={this.handleSubmit}>
-						<div className="flex column space-around center">
+					<form onSubmit={this.handleSubmit} className="mui-form">
+						<div className="flex column space-around center mui-textfield">
 							<input
 								name="optionOneText"
 								style={paddingStyle}
@@ -52,7 +52,9 @@ class NewQuestion extends Component {
 								onChange={this.handleChange}
 								placeholder="Enter First Option Here"
 							/>
-							<strong style={paddingStyle}>or</strong>
+						</div>
+						<strong style={paddingStyle}>or</strong>
+						<div className="flex column space-around center mui-textfield">
 							<input
 								name="optionTwoText"
 								style={paddingStyle}
@@ -61,7 +63,11 @@ class NewQuestion extends Component {
 								value={optionTwoText}
 								placeholder="Enter Second Option Here"
 							/>
-							<button style={paddingStyle} type="submit">
+							<button
+								style={paddingStyle}
+								type="submit"
+								className="mui-btn mui-btn--raised mui-btn--primary"
+							>
 								Submit
 							</button>
 						</div>

@@ -16,7 +16,7 @@ class Home extends Component {
 		const { showAnswered } = this.state;
 		return (
 			<div className="flex row space-around">
-				<div className="flex column  center">
+				<div className="flex column center">
 					<h2 onClick={this.toggleShowAnswered}>
 						Unanswered Questions
 					</h2>
@@ -32,14 +32,16 @@ class Home extends Component {
 											<li>{question.optionTwo.text}</li>
 										</ol>
 										<Link to={`/questions/${question.id}`}>
-											<button>View Poll</button>
+											<button className="mui-btn mui-btn--raised mui-btn--primary">
+												View Poll
+											</button>
 										</Link>
 									</div>
 								))}
 						</div>
 					)}
 				</div>
-				<div className="flex column  center">
+				<div className="flex column center">
 					<h2 onClick={this.toggleShowAnswered}>
 						Answered Questions
 					</h2>
@@ -55,7 +57,9 @@ class Home extends Component {
 											<li>{question.optionTwo.text}</li>
 										</ol>
 										<Link to={`/questions/${question.id}`}>
-											<button>View Poll</button>
+											<button className="mui-btn mui-btn--raised mui-btn--primary">
+												View Poll
+											</button>
 										</Link>
 									</div>
 								))}
