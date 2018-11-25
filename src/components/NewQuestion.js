@@ -46,7 +46,6 @@ class NewQuestion extends Component {
 						<div className="flex column space-around center mui-textfield">
 							<input
 								name="optionOneText"
-								style={paddingStyle}
 								type="text"
 								value={optionOneText}
 								onChange={this.handleChange}
@@ -57,7 +56,6 @@ class NewQuestion extends Component {
 						<div className="flex column space-around center mui-textfield">
 							<input
 								name="optionTwoText"
-								style={paddingStyle}
 								type="text"
 								onChange={this.handleChange}
 								value={optionTwoText}

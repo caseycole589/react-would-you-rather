@@ -14,7 +14,7 @@ class QuestionMaster extends Component {
 		const authorVoted =
 			question.optionOne.votes.includes(authUser) ||
 			question.optionTwo.votes.includes(authUser);
-
+		console.log(authorVoted);
 		if (authorVoted) {
 			return (
 				<AnsweredQuestion

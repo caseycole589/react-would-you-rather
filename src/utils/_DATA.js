@@ -191,7 +191,6 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
           }
         }
       };
-      console.log(questions);
       questions = {
         ...questions,
         [qid]: {
@@ -202,7 +201,6 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
           }
         }
       };
-      console.log(questions);
       res();
     }, 500);
   });

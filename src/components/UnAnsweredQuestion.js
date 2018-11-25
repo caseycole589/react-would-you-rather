@@ -16,7 +16,7 @@ const styles = theme => ({
 class UnAnsweredQuestion extends Component {
 	state = {
 		answer: '',
-		toHome: false
+		toAnsweredQuestion: false
 	};
 	handleSubmit = e => {
 		e.preventDefault();
@@ -26,7 +26,7 @@ class UnAnsweredQuestion extends Component {
 			answer: this.state.answer
 		};
 		this.props.dispatch(handleAnswerQuestion(postData));
-		this.setState({ toHome: true });
+		this.setState({ toAnsweredQuestion: true });
 	};
 	handleChange = e => {
 		const { name, value } = e.target;
@@ -35,11 +35,11 @@ class UnAnsweredQuestion extends Component {
 		});
 	};
 	render() {
-		const { question, classes } = this.props;
+		const { question, classes, id } = this.props;
 		const answer = this.state.answer;
-		const toHome = this.state.toHome;
-		if (toHome) {
-			return <Redirect to={'/'} />;
+		const toAnsweredQuestion = this.state.toAnsweredQuestion;
+		if (toAnsweredQuestion) {
+			return <Redirect to={`/questions/${id}`} />;
 		}
 		return (
 			<div className="container">

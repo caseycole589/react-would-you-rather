@@ -24,13 +24,23 @@ class Home extends Component {
 						<div>
 							{unAnsweredQuestions &&
 								unAnsweredQuestions.map(question => (
-									<div key={question.id}>
-										<strong>{question.author} ask: </strong>
-										Would Your rather
-										<ol>
-											<li>{question.optionOne.text}</li>
-											<li>{question.optionTwo.text}</li>
-										</ol>
+									<div
+										key={question.id}
+										className="shadow flex column"
+										style={{
+											marginBottom: '20px',
+											textAlign: 'start'
+										}}
+									>
+										<div>
+											<strong>
+												{' '}
+												{question.author} ask:{' '}
+											</strong>{' '}
+											Would Your rather
+										</div>
+										<div>1. {question.optionOne.text}</div>
+										<div>2. {question.optionTwo.text}</div>
 										<Link to={`/questions/${question.id}`}>
 											<button className="mui-btn mui-btn--raised mui-btn--primary">
 												View Poll
@@ -49,13 +59,23 @@ class Home extends Component {
 						<div>
 							{answeredQuestions &&
 								answeredQuestions.map(question => (
-									<div key={question.id}>
-										<strong>{question.author} ask: </strong>
-										Would Your rather
-										<ol>
-											<li>{question.optionOne.text}</li>
-											<li>{question.optionTwo.text}</li>
-										</ol>
+									<div
+										key={question.id}
+										className="shadow flex column"
+										style={{
+											marginBottom: '20px',
+											textAlign: 'start'
+										}}
+									>
+										<div>
+											<strong>
+												{' '}
+												{question.author} ask:{' '}
+											</strong>{' '}
+											Would Your rather
+										</div>
+										<div>1. {question.optionOne.text}</div>
+										<div>2. {question.optionTwo.text}</div>
 										<Link to={`/questions/${question.id}`}>
 											<button className="mui-btn mui-btn--raised mui-btn--primary">
 												View Poll

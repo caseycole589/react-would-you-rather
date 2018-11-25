@@ -18,7 +18,7 @@ class AnsweredQuestion extends Component {
 			? 'optionOne'
 			: 'optionTwo';
 		return (
-			<div>
+			<div className="shadow">
 				<h3>{question.author} Asked Would Your Rather...</h3>
 				<div className="flex column center ">
 					<div className="flex row mui-radio">

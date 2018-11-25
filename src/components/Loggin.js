@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authUser';
 
-const space = {
-	margin: '10px'
-};
 class Loggin extends Component {
 	state = {
 		userId: ''
