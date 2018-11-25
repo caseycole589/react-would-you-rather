@@ -1,14 +1,15 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import '../App.css';
+import Home from './Home';
+import LeaderBoard from './LeaderBoard';
 import LoadingBar from 'react-redux-loading';
-import { handleInitialData } from '../actions/shared';
+import Loggin from './Loggin';
 import Main from './Main';
 import NewQuestion from './NewQuestion';
-import Loggin from './Loggin';
-import Home from './Home';
 import QuestionMaster from './QuestionMaster';
-import '../App.css';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
 
 class App extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/add" component={NewQuestion} />
+                  <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/questions/:id" component={QuestionMaster} />
                   <Route component={Loggin} />
                 </Switch>
