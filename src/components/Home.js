@@ -12,14 +12,27 @@ class Home extends Component {
 		});
 	};
 	render() {
-		const { unAnsweredQuestions, answeredQuestions } = this.props;
+		const { users, unAnsweredQuestions, answeredQuestions } = this.props;
 		const { showAnswered } = this.state;
 		return (
 			<div className="flex row space-around">
 				<div className="flex column center">
-					<h2 onClick={this.toggleShowAnswered}>
-						Unanswered Questions
-					</h2>
+					<div className="flex row space-around">
+						<h2
+							className={`${!showAnswered ? '' : 'focus-tab'}`}
+							onClick={this.toggleShowAnswered}
+							style={{ marginRight: '5px' }}
+						>
+							Unanswered Questions
+						</h2>
+						<h2
+							className={`${!showAnswered ? 'focus-tab' : ''}`}
+							onClick={this.toggleShowAnswered}
+							style={{ marginLeft: '5px' }}
+						>
+							Answered Questions
+						</h2>
+					</div>
 					{showAnswered && (
 						<div>
 							{unAnsweredQuestions &&
@@ -50,11 +63,6 @@ class Home extends Component {
 								))}
 						</div>
 					)}
-				</div>
-				<div className="flex column center">
-					<h2 onClick={this.toggleShowAnswered}>
-						Answered Questions
-					</h2>
 					{!showAnswered && (
 						<div>
 							{answeredQuestions &&
@@ -110,7 +118,8 @@ function mapStateToProps({ users, questions, authUser }) {
 				question.optionTwo.votes.includes(authUser)
 			);
 			return authorVoted;
-		})
+		}),
+		users
 	};
 }
 

@@ -13,12 +13,15 @@ class AnsweredQuestion extends Component {
 		});
 	};
 	render() {
-		const { question, authUser } = this.props;
+		const { question, authUser, users } = this.props;
 		const answer = question.optionOne.votes.includes(authUser)
 			? 'optionOne'
 			: 'optionTwo';
+		const userImg = users[question.author].avatarURL;
+		console.log(userImg);
 		return (
 			<div className="shadow">
+				<img src={`images/${userImg}`} alt="avatar" />
 				<h3>{question.author} Asked Would Your Rather...</h3>
 				<div className="flex column center ">
 					<div className="flex row mui-radio">
@@ -46,10 +49,10 @@ class AnsweredQuestion extends Component {
 		);
 	}
 }
-function mapStateToProps({ questions, authUser }) {
+function mapStateToProps({ authUser, users }) {
 	return {
 		authUser,
-		questions
+		users
 	};
 }
 

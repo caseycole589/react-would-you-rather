@@ -74,3 +74,6 @@ div.container {
   margin-left: auto;
   margin-top: 60px;
 }
+h2.focus-tab {
+  border-bottom: 3px solid violet;
+}
