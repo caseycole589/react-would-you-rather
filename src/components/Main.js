@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 const styles = {
 	root: {
@@ -32,7 +31,7 @@ class Main extends Component {
 							className="flex row space-between"
 							style={{ width: '100%' }}
 						>
-							<div className="flex">
+							<div className="flex center">
 								<NavLink to="/" exact>
 									<Typography
 										variant="h6"
