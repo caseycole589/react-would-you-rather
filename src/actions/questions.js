@@ -1,6 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading';
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA';
-
+import { handleInitialData } from './shared';
 export const RECIEVE_QUESTIONS = 'RECIEVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const ANSWER_QUESTION = 'ANSWER_QUESTION';
@@ -31,6 +31,7 @@ export const handleAnswerQuestion = question => {
 		dispatch(showLoading());
 		return _saveQuestionAnswer(question).then(resp => {
 			dispatch(answerQuestion(question));
+			dispatch(handleInitialData());
 			dispatch(hideLoading());
 		});
 	};
@@ -41,6 +42,7 @@ export const handleAddQuestion = question => {
 		dispatch(showLoading());
 		return _saveQuestion(question).then(resp => {
 			dispatch(addQuestion(resp));
+			dispatch(handleInitialData());
 			dispatch(hideLoading());
 		});
 	};
