@@ -141,9 +141,10 @@ class Home extends Component {
 
 function mapStateToProps({ users, questions, authUser }) {
 	const questionsArr = Object.values(questions).sort(
-		(a, b) => b.timestamp > a.timestamp
+		(a, b) => b.timestamp - a.timestamp
 	);
-
+	console.log(questions);
+	console.log(users);
 	return {
 		authUser,
 		answeredQuestions: questionsArr.filter(question => {

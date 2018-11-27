@@ -31,6 +31,8 @@ export const handleAnswerQuestion = question => {
 		dispatch(showLoading());
 		return _saveQuestionAnswer(question).then(resp => {
 			dispatch(answerQuestion(question));
+			//easy way to deal with the leaderboard problem should probably
+			//switch to use reducer in user though
 			dispatch(handleInitialData());
 			dispatch(hideLoading());
 		});

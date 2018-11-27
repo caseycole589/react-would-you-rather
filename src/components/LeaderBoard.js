@@ -24,12 +24,13 @@ class LeaderBoard extends Component {
 										{user.answerVotes}
 									</div>
 									<div className="flex row center space-between">
-										<h5>Unanswered Questions: </h5>
+										<h5>Created Questions: </h5>
 										{user.questions.length}
 									</div>
 									<div className="flex row center space-between">
 										<h5>Score: </h5>
-										{user.totalVotes}
+										{user.questions.length +
+											user.answerVotes}
 									</div>
 								</div>
 							</div>
@@ -43,14 +44,12 @@ function mapStateToProps({ users }) {
 	const sortedUsers = Object.values(users)
 		.map(user => {
 			const answerVotes = Object.values(user.answers).length;
-			const totalVotes = answerVotes + user.questions.length;
 			return {
 				...user,
-				totalVotes,
 				answerVotes
 			};
 		})
-		.sort((a, b) => b.totalVotes > a.totalVotes);
+		.sort((a, b) => b.answerVotes - a.answerVotes);
 	return {
 		sortedUsers
 	};

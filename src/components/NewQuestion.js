@@ -45,6 +45,7 @@ class NewQuestion extends Component {
 					<form onSubmit={this.handleSubmit} className="mui-form">
 						<div className="flex column space-around center mui-textfield">
 							<input
+								required
 								name="optionOneText"
 								type="text"
 								value={optionOneText}
@@ -55,6 +56,7 @@ class NewQuestion extends Component {
 						<strong style={paddingStyle}>or</strong>
 						<div className="flex column space-around center mui-textfield">
 							<input
+								required
 								name="optionTwoText"
 								type="text"
 								onChange={this.handleChange}
